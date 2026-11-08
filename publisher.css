@@ -1,0 +1,389 @@
+:root {
+  color-scheme: dark;
+  --background: #111916;
+  --surface: #1b2822;
+  --line: #3b4c43;
+  --ink: #f4f5ea;
+  --muted: #b9c6ba;
+  --accent: #caf480;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.55;
+}
+
+.support-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.24em;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 2;
+  inset: 12px auto auto 12px;
+  padding: 8px 12px;
+  background: var(--accent);
+  color: var(--background);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.shell {
+  width: min(1160px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.site-header {
+  border-block-end: 1px solid var(--line);
+}
+
+.header-inner, .footer-inner, .section-heading, .support-callout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.header-inner {
+  min-height: 75px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 1.24rem;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.brand img {
+  display: block;
+}
+
+nav {
+  display: flex;
+  gap: clamp(14px, 4vw, 38px);
+}
+
+nav a, .footer-inner a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+nav a:hover, nav a[aria-current="page"], .footer-inner a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(34px, 5vw, 74px);
+  align-items: center;
+  padding-block: clamp(42px, 7vw, 94px) 62px;
+}
+
+h1, h2, p, figure, dl, dd {
+  margin: 0;
+}
+
+h1, h2 {
+  line-height: 1.02;
+  letter-spacing: -0.062em;
+}
+
+h1 {
+  font-size: clamp(3.1rem, 7.6vw, 6.75rem);
+  font-weight: 780;
+}
+
+.eyebrow {
+  margin-bottom: 16px;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.intro, .section-intro {
+  margin-top: 23px;
+  max-width: 42ch;
+  color: var(--muted);
+  font-size: clamp(1.03rem, 1.7vw, 1.19rem);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 27px;
+  padding: 12px 17px;
+  border-radius: 5px;
+  background: var(--accent);
+  color: var(--background);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #e0ffb3;
+}
+
+.showcase {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.showcase-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: 1.23;
+  background-image: radial-gradient(#476253 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.showcase-stage::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 21% 6%;
+  transform: rotate(-21deg);
+  border: 1px solid #6d9572;
+  border-radius: 50%;
+}
+
+.screen {
+  position: absolute;
+  display: block;
+  width: auto;
+  height: 83%;
+  border: 4px solid #101613;
+  border-radius: 15px;
+  box-shadow: 0 12px 24px #0c130fc4;
+}
+
+.screen-back {
+  right: 13%;
+  top: 9%;
+  transform: rotate(11deg);
+}
+
+.screen-front {
+  left: 15%;
+  top: 8%;
+  transform: rotate(-9deg);
+}
+
+.showcase figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+  background: #141e18;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.showcase figcaption span {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.asset-section {
+  padding-block: 47px 53px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 16px;
+}
+
+.section-heading {
+  align-items: end;
+}
+
+.asset-section h2 {
+  font-size: clamp(3rem, 6vw, 4.75rem);
+}
+
+.section-intro {
+  max-width: 61ch;
+  margin-top: 15px;
+}
+
+.status {
+  padding: 4px 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(18px, 4vw, 45px);
+  margin-top: 34px;
+}
+
+.features > div {
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+dt {
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+dd, .support-callout p, .issue-details {
+  color: var(--muted);
+}
+
+.support-callout {
+  padding: 25px 29px;
+  margin-bottom: 62px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.support-callout h2, .issue-details h2 {
+  margin-bottom: 8px;
+  font-size: 1.65rem;
+  letter-spacing: -0.04em;
+}
+
+.text-link {
+  color: var(--accent);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.site-footer {
+  border-block-start: 1px solid var(--line);
+}
+
+.footer-inner {
+  min-height: 74px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.support-page {
+  flex: 1;
+  padding-block: clamp(55px, 9vw, 110px) 80px;
+}
+
+.support-content {
+  max-width: 710px;
+}
+
+.support-page h1 {
+  font-size: clamp(3rem, 7vw, 5.6rem);
+}
+
+.email-address {
+  margin-top: 14px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.issue-details {
+  margin-top: 48px;
+  padding-top: 27px;
+  border-top: 1px solid var(--line);
+}
+
+.issue-details h2 {
+  color: var(--ink);
+}
+
+.issue-details ul {
+  margin-bottom: 0;
+  padding-left: 1.2em;
+}
+
+.issue-details li + li {
+  margin-top: 7px;
+}
+
+@media (max-width: 780px) {
+  .shell {
+    width: calc(100% - 40px);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-bottom: 44px;
+  }
+
+  .showcase {
+    width: 100%;
+    max-width: 590px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .header-inner {
+    min-height: 64px;
+    gap: 12px;
+  }
+
+  .brand {
+    gap: 7px;
+    font-size: 1.1rem;
+  }
+
+  .brand img {
+    width: 31px;
+    height: 31px;
+  }
+
+  nav {
+    font-size: 0.91rem;
+  }
+
+  .screen {
+    border-width: 3px;
+    border-radius: 10px;
+  }
+
+  .support-callout {
+    align-items: start;
+    flex-direction: column;
+    gap: 14px;
+    padding: 21px;
+  }
+}
